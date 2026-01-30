@@ -2,7 +2,7 @@ steps:
   - name: version
     image: alpine
     commands:
-      - apk add --no-cache git make
+      - apk add --no-cache git make jq
       - make ci-version
 
   - name: build
