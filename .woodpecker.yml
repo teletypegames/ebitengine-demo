@@ -6,7 +6,7 @@ steps:
       - make ci-version
 
   - name: build
-    image: golang:1.22
+    image: golang:1.25.6
     commands:
       - make ci-export
 
