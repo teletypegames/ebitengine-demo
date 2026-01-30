@@ -53,7 +53,7 @@ ci-export:
 
 ci-upload:
 	@VERSION=$$(cat $(VERSION_FILE)); \
-	FILE=$(OUTPUT_ZIP); \
+	FILE="$(PROJECT)-$$VERSION.html.zip"; \
 	sshpass -p "$(DROPAREA_SSH_PASSWORD)" scp -o StrictHostKeyChecking=no -P $(DROPAREA_PORT) \
 	$$FILE $(DROPAREA_USER)@$(DROPAREA_HOST):$(DROPAREA_TARGET_PATH)/
 
