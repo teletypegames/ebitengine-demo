@@ -44,7 +44,15 @@ clean:
 	rm -rf $(BIN_DIR) $(DIST_DIR)
 
 ci-version:
-	@VERSION=$$(git describe --tags --dirty --always); \
+	@if [ -f metadata.json ]; then \
+		VERSION=$$(jq -r '.version' metadata.json); \
+	else \
+		VERSION=$$(git rev-parse --short HEAD); \
+	fi; \
+	BRANCH=$$(git rev-parse --abbrev-ref HEAD); \
+	if [ "$$BRANCH" != "main" ] && [ "$$BRANCH" != "master" ]; then \
+		VERSION="dev-$$VERSION-$$BRANCH"; \
+	fi; \
 	echo $$VERSION > $(VERSION_FILE)
 
 ci-export:
