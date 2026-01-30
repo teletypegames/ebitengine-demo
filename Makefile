@@ -54,8 +54,12 @@ ci-export:
 ci-upload:
 	@VERSION=$$(cat $(VERSION_FILE)); \
 	FILE="$(PROJECT)-$$VERSION.html.zip"; \
+	META_SRC="metadata.json"; \
+	META_DST="$(PROJECT)-$$VERSION.metadata.json"; \
+	cp $$META_SRC $$META_DST; \
 	sshpass -p "$(DROPAREA_SSH_PASSWORD)" scp -o StrictHostKeyChecking=no -P $(DROPAREA_PORT) \
-	$$FILE $(DROPAREA_USER)@$(DROPAREA_HOST):$(DROPAREA_TARGET_PATH)/
+		$$FILE $$META_DST \
+		$(DROPAREA_USER)@$(DROPAREA_HOST):$(DROPAREA_TARGET_PATH)/
 
 ci-update:
 	@VERSION=$$(cat $(VERSION_FILE)); \
