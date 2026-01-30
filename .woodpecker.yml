@@ -8,7 +8,7 @@ steps:
   - name: build
     image: golang:1.25.6-alpine
     commands:
-      - apk add --no-cache zip
+      - apk add --no-cache zip make
       - make ci-export
 
   - name: artifact
