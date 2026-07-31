@@ -6,9 +6,8 @@ steps:
       - make ci-version
 
   - name: build
-    image: golang:1.25.6-alpine
+    image: git.teletypegames.org/internal/ebitengine-builder:latest
     commands:
-      - apk add --no-cache zip make curl
       - make ci-export
 
   - name: artifact
