@@ -7,11 +7,13 @@ steps:
 
   - name: build
     image: git.teletypegames.org/internal/ebitengine-builder:latest
+    pull: true
     commands:
       - make ci-export
 
   - name: binaries
     image: git.teletypegames.org/internal/ebitengine-builder:latest
+    pull: true
     commands:
       - make ci-binaries
 
