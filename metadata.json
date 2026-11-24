@@ -5,6 +5,6 @@
   "desc": "It's a simple demo program in Ebitengine",
   "site": "https://git.teletypegames.org/demos/ebitengine-demo",
   "repo": "https://git.teletypegames.org/demos/ebitengine-demo",
-  "license": "MIT License",
+  "license": "MIT",
   "version": "1.0.1"
 }
